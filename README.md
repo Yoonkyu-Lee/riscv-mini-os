@@ -115,6 +115,8 @@ riscv-mini-os/
   syscall numbers, return values
 - [`docs/memory-map.md`](docs/memory-map.md) — physical map, MMIO ranges,
   Sv39 virtual map
+- [`docs/benchmarks.md`](docs/benchmarks.md) — `_fork+_wait`, syscall,
+  and KTFS open cost (~4.5 µs syscall, ~19 µs fsopen, ~1.3 ms fork)
 
 ## License & attribution
 

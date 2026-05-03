@@ -29,7 +29,8 @@ ALL_TARGETS = \
 	fib \
 	trekfib \
 	init \
-	shell
+	shell \
+	bench
 
 CFLAGS = -Wall -fno-omit-frame-pointer -ggdb3 -gdwarf-2
 CFLAGS += -mcmodel=medany -fno-pie -no-pie -march=rv64g -mabi=lp64d
@@ -56,6 +57,9 @@ init: $(ULIB_OBJS) init.o | bin
 	$(LD) -T $(ULIB_LD) -o bin/$@ $^
 
 shell: $(ULIB_OBJS) shell.o | bin
+	$(LD) -T $(ULIB_LD) -o bin/$@ $^
+
+bench: $(ULIB_OBJS) bench.o | bin
 	$(LD) -T $(ULIB_LD) -o bin/$@ $^
 
 bin:

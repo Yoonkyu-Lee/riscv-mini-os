@@ -110,7 +110,7 @@ kernel.elf: $(OBJS) main.o blob.o
 
 # User binaries that get packed into ktfs.raw for the production image.
 PROD_USR_BINS = ../user/bin/fib ../user/bin/trekfib ../user/bin/init \
-                ../user/bin/hello ../user/bin/shell
+                ../user/bin/hello ../user/bin/shell ../user/bin/bench
 
 ../user/bin/%:
 	$(MAKE) -C ../user UMODE=1
@@ -122,7 +122,7 @@ PROD_USR_BINS = ../user/bin/fib ../user/bin/trekfib ../user/bin/init \
 ktfs.raw: $(PROD_USR_BINS)
 	cd ../user/bin && \
 	  $(MKFS_KTFS) $(CURDIR)/ktfs.raw 16M 32 \
-	    fib trekfib init hello shell
+	    fib trekfib init hello shell bench
 
 # Pick the init binary to launch.  Default trekfib (fork demo).
 # Override with `make run INIT=shell` or `make run INIT=hello` etc.
