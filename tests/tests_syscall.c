@@ -109,12 +109,14 @@ static int test_sys_read(struct test_result *r) {
 }
 
 static int test_sys_write(struct test_result *r) {
-    // Open the only registered uart in the test bench (instno=0 -> UART1).
+    // The bench registers the boot console (UART0) as `console`, since
+    // additional UART instances are only available with multi-UART
+    // QEMU virt patches.
     int fd = 3;
     int64_t rc = call_syscall(SYSCALL_DEVOPEN, fd,
-                              (uint64_t)(uintptr_t)"uart", 0, 0, 0, 0);
+                              (uint64_t)(uintptr_t)"console", 0, 0, 0, 0);
     if (rc < 0) {
-        r->fail_reason = "sysdevopen('uart', 0) returned an error";
+        r->fail_reason = "sysdevopen('console', 0) returned an error";
         return 0;
     }
     static const char msg[] = "syscall-write-test\n";

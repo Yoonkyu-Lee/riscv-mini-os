@@ -6,6 +6,7 @@
 
 #include "assert.h"
 #include "console.h"
+#include "device.h"
 #include "intr.h"
 #include "io.h"
 #include "ioimpl.h"
@@ -237,4 +238,21 @@ struct io * make_console_io(void) {
     if (io == NULL) return NULL;
     ioinit1(io, &cio_intf);
     return io;
+}
+
+// ---- console as a registered device --------------------------------------
+//
+// Exposes the boot console (UART0) as the named device "console" so user
+// code -- and the syscall test bench -- can _devopen("console", 0) and
+// then _read/_write against it. Independent of UART1+, which the QEMU
+// virt machine only exposes when patched.
+
+static int console_open(struct io ** ioptr, void * aux) {
+    (void)aux;
+    *ioptr = make_console_io();
+    return *ioptr ? 0 : -ENOMEM;
+}
+
+void console_register_device(void) {
+    register_device("console", console_open, NULL);
 }

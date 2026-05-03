@@ -15,6 +15,11 @@
 extern char console_initialized;
 
 extern void console_init(void);
+
+// Register the boot console as a named user-openable device (`console`).
+// Must be called after devmgr_init().
+extern void console_register_device(void);
+
 extern void kputc(char c);
 extern char kgetc(void);
 extern void kputs(const char * str);

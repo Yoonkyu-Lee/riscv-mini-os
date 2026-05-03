@@ -101,7 +101,11 @@ void main(void) {
     procmgr_init();
 
     rtc_attach((void *)RTC_MMIO_BASE);
-    uart_attach((void *)UART1_MMIO_BASE, UART0_INTR_SRCNO + 1);
+
+    // Register the boot console (UART0) as a user-openable device so
+    // tests_syscall::test_sys_write has somewhere to write to without
+    // depending on a multi-UART QEMU virt machine.
+    console_register_device();
 
     // Attach 8 VirtIO MMIO slots.  vioblk_attach is a weak no-op until
     // Phase C links the real one in; viorng works out of the box.
