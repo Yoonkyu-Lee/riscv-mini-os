@@ -1,16 +1,14 @@
 // Copyright (c) 2025 Yoonkyu Lee
 // SPDX-License-Identifier: NCSA
 //
-// test_runner.c -- per-test driver and AG-style report formatter
+// test_runner.c -- per-test driver and report formatter
 //
 // Each test is invoked through run_test(), which wraps the call in:
 //   - clobber_mask = 0          (wrapper records this run only)
 //   - test_setjmp(...)          (recover from synchronous faults)
 //   - test_recover_armed = 1    (handle_smode_exception longjmps on fault)
 //
-// Output mirrors the original Su25 autograder report format so we can
-// diff against tmp/autograder_report_*.md (MP2) or sp25_mp1_final_ag_report.txt
-// (MP1).  Adapted from mp1/test/test_runner.c for MP2's S-mode trap.
+// Output is a per-case PASS/FAIL row plus a final score line.
 
 #include <stdint.h>
 #include <stddef.h>

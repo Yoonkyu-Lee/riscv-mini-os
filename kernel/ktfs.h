@@ -64,7 +64,7 @@ struct ktfs_superblock {
 // Inode with indirect and doubly-indirect blocks
 struct ktfs_inode {
     uint32_t size;                                  // Size in bytes
-    uint32_t flags;                                 // File type, etc. (unused in MP3)
+    uint32_t flags;                                 // File type, etc. (unused)
     uint32_t block[KTFS_NUM_DIRECT_DATA_BLOCKS];    // Direct block indices
     uint32_t indirect;                              // Indirect block index
     uint32_t dindirect[KTFS_NUM_DINDIRECT_BLOCKS];  // Doubly-indirect block indices

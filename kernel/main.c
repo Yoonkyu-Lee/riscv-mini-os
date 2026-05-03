@@ -48,7 +48,7 @@ void main(void) {
 
     enable_interrupts();
 
-    // CP3 grading template: do NOT pre-open the UARTs in the kernel.
+    // Do NOT pre-open the UARTs in the kernel.
     // The init/trekfib user program opens whatever device fds it needs.
     result = open_device("vioblk", 1, &blkio);
     if (result < 0) panic("Failed to open vioblk\n");

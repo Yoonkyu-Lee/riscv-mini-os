@@ -138,7 +138,7 @@ int elf_load(struct io * elfio, void (**eptr)(void)) {
 
         // Spec (PDF 5.1.6): all sections must lie within
         // [USER_START_VMA, USER_END_VMA), i.e. 0x80100000..0x81000000
-        // for CP1.  Reject otherwise.
+        // Reject otherwise.
         if (ph.p_vaddr             < (uint64_t)UMEM_START_VMA) return -EINVAL;
         if (ph.p_vaddr + ph.p_memsz > (uint64_t)UMEM_END_VMA)  return -EINVAL;
         if (ph.p_filesz > ph.p_memsz)                          return -EINVAL;

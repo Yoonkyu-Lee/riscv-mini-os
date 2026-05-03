@@ -79,8 +79,8 @@ struct thread {
     struct thread * list_next;
     struct condition * wait_cond;
     struct condition child_exit;
-    struct lock * lock_list;     // MP3 CP1: locks held by this thread
-    struct process * proc;       // MP3 CP2: associated process (NULL if pure kernel thread)
+    struct lock * lock_list;     // locks held by this thread
+    struct process * proc;       // associated process (NULL if pure kernel thread)
 };
 
 // INTERNAL MACRO DEFINITIONS
@@ -273,8 +273,8 @@ void thread_exit(void) {
     struct thread * me = TP;
 
     // Drain any locks still held -- spec: "exiting thread must release all
-    // held locks" (MP3 CP1).  Walk lock_list and release until empty.  Each
-    // release detaches itself from me->lock_list, so re-read the head.
+    // held locks".  Walk lock_list and release until empty.  Each release
+    // detaches itself from me->lock_list, so re-read the head.
     while (me->lock_list != NULL)
         lock_release(me->lock_list);
 
@@ -504,7 +504,7 @@ void running_thread_suspend(void) {
     assert (next != NULL);
     set_thread_state(next, THREAD_SELF);
 
-    // CP3 multi-mspace: if the resuming thread belongs to a different
+    // Multi-mspace: if the resuming thread belongs to a different
     // process, switch to its memory space.
     if (next->proc != NULL && next->proc->mtag != 0)
         switch_mspace(next->proc->mtag);
@@ -608,7 +608,7 @@ void idle_thread_func(void) {
 }
 
 // =====================================================================
-// MP3 CP1: locks
+// Locks
 //
 // Recursive lock tied to a thread.  The cv inside the lock is the wait
 // queue for any thread blocked on acquire.  count tracks recursion depth
@@ -673,7 +673,7 @@ void lock_release(struct lock * lock) {
 }
 
 // =====================================================================
-// MP3 CP2: thread <-> process glue
+// Thread <-> process glue
 // =====================================================================
 
 struct process * thread_process(int tid) {

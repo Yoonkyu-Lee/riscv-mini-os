@@ -125,7 +125,7 @@ void handle_smode_exception(unsigned int cause, struct trap_frame * tfr) {
     panic(msgbuf);
 }
 
-// U-mode exception path (CP2+).  Same recovery pattern as the S-mode
+// U-mode exception path.  Same recovery pattern as the S-mode
 // handler -- if test_recover_armed, capture state and longjmp.
 void handle_umode_exception(unsigned int cause, struct trap_frame * tfr) {
     if (test_recover_armed) {

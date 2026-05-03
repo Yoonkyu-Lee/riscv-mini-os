@@ -192,7 +192,7 @@ char console_device_getc(void) {
 }
 
 // ---- console-backed io ---------------------------------------------------
-// Used by the CP2 demo so user processes can do read/write/ioctl through
+// Used by user processes can do read/write/ioctl through
 // fd 0/1/2 against the boot console (UART0 polled MMIO).
 
 static long cio_read(struct io * io, void * buf, long bufsz) {

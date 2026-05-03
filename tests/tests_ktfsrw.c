@@ -70,7 +70,7 @@ static int test_ktfs_writeat_persist(struct test_result *r) {
         return 0;
     }
 
-    static const char pattern[16] = "ECE391-WRITEAT!";   // 15 chars + NUL
+    static const char pattern[16] = "KTFS-WRITEAT-OK";   // 15 chars + NUL
     long w = ktfs_writeat(io, 0, pattern, sizeof pattern);
     ioclose(io);
     if (w != (long)sizeof pattern) {

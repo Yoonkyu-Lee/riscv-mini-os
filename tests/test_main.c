@@ -1,15 +1,12 @@
 // Copyright (c) 2025 Yoonkyu Lee
 // SPDX-License-Identifier: NCSA
 //
-// test_main.c -- entry point for the MP3 test bench
+// test_main.c -- entry point for the kernel test bench
 //
-// Boots the kernel infrastructure that's been imported from MP2 (intr,
-// plic, devmgr, heap, thread, timer, rtc, uart, viorng), then runs the
-// registered test suites and prints an AG-style summary.
-//
-// Initial scope (Phase A): infrastructure smoke + locks (1pt). Each
-// subsequent phase grows the suite registry (memio/elf/cache/vioblk/
-// ktfs/vm/syscall/ktfsrw, ~70pt total).
+// Boots the kernel infrastructure (intr, plic, devmgr, heap, thread,
+// timer, rtc, uart, viorng), then runs the registered test suites
+// (memio / elf / cache / vioblk / ktfs / vm / syscall / ktfsrw,
+// ~70 pt total) and prints a summary.
 
 #include <stdint.h>
 #include "conf.h"
@@ -33,8 +30,8 @@ extern void uart_attach(void *mmio_base, int irqno);
 
 // ---- recovery smoke test -------------------------------------------------
 //
-// Same shape as MP2: arm test_recover_buf, deref NULL, expect to land in
-// the longjmp branch with cause/sepc/stval captured.
+// Arm test_recover_buf, deref NULL, expect to land in the longjmp
+// branch with cause/sepc/stval captured.
 
 static void recovery_smoke_test(void) {
     kprintf("[recovery smoke test]\n");
@@ -88,13 +85,12 @@ void main(void) {
 
     kprintf("\n");
     kprintf("==========================================\n");
-    kprintf("[ECE 391 MP3 Custom Test Bench]\n");
+    kprintf("[riscv-mini-os test bench]\n");
     kprintf("==========================================\n");
     kprintf("\n");
 
-    // Kernel init -- enough for the whole CP1+CP2 surface.  Nothing here
-    // depends on student-implemented code; the imports from MP2 boot fine
-    // even before vioblk/ktfs/cache/memory/process/syscall are filled in.
+    // Kernel init -- bring up enough infrastructure to register the
+    // device tree and probe drivers before the test suites run.
     intrmgr_init();
     devmgr_init();
     // memory_init does heap_init internally and turns on paging via satp.

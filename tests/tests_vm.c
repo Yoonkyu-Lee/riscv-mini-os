@@ -136,9 +136,8 @@ static int test_vm_kernel_mapped(struct test_result *r) {
 
 // ---- helpers for user-VMA tests -----------------------------------------
 //
-// We pick a vaddr inside [USER_START_VMA, USER_END_VMA) (defined in conf.h
-// as 0x80100000..0x81000000 for CP1; CP2 PDF 5.2.6 says these become
-// 0x0C0000000..0x100000000 -- whichever conf.h has, the test uses).
+// We pick a vaddr inside [USER_START_VMA, USER_END_VMA) -- whichever
+// range conf.h has at the moment, the test uses.
 
 #ifndef USER_TEST_VMA
 #define USER_TEST_VMA UMEM_START_VMA
@@ -267,14 +266,10 @@ static int test_vm_user_range_unmap(struct test_result *r) {
 // (or handle_smode_exception if we're in S-mode -- depends on which
 // handler the kernel routes faults to in supervisor context).
 //
-// In CP2, the rubric (PDF 5.2.2) says lazy allocation should kick in for
-// faults inside USER_START_VMA..USER_END_VMA.  We test that path here:
-// after a fault, repeating the access should succeed without panic.
-//
-// Pristine starter handle_umode_page_fault returns 0 (not handled) and
-// alloc_phys_page returns NULL, so this test FAILs with the recovery
-// trapping out.  Once the student fills both, the second access lands on
-// a freshly mapped+zeroed page.
+// Lazy allocation should kick in for faults inside
+// USER_START_VMA..USER_END_VMA.  We test that path here: after a fault,
+// repeating the access should succeed without panic. The second access
+// lands on a freshly mapped+zeroed page.
 
 static int test_vm_lazy_alloc(struct test_result *r) {
     volatile int * vp = (volatile int *)USER_TEST_VMA;

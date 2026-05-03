@@ -1,4 +1,4 @@
-// ktfs.c - KTFS read-only filesystem driver (CP1)
+// ktfs.c - KTFS filesystem driver
 //
 // Copyright (c) 2024-2025 University of Illinois
 // SPDX-License-identifier: NCSA
@@ -278,7 +278,7 @@ int ktfs_flush(void) {
     return cache_flush(g_cache);
 }
 
-// CP2 write side: writeat / create / delete.
+// Write side: writeat / create / delete.
 //
 // Layout reminders:
 //   block 0           : superblock

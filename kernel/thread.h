@@ -121,7 +121,7 @@ extern void condition_wait(struct condition * cond);
 
 extern void condition_broadcast(struct condition * cond);
 
-// Lock primitives (MP3 CP1).  See doxygen for full spec.
+// Lock primitives.  See doxygen for full spec.
 //   lock_init    -- zero-init, set owner=NULL count=0
 //   lock_acquire -- recursive: same-owner increments count, else wait on cv
 //   lock_release -- decrement count; on 0, broadcast cv and unlink from owner
@@ -130,7 +130,7 @@ extern void lock_init(struct lock * lock);
 extern void lock_acquire(struct lock * lock);
 extern void lock_release(struct lock * lock);
 
-// Process glue (MP3 CP2).  thread <-> process bidirectional pointer; struct
+// Process glue.  thread <-> process bidirectional pointer; struct
 // process is opaque here.
 
 extern struct process * thread_process(int tid);

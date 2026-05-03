@@ -180,7 +180,7 @@ long viorng_read(struct io * io, void * buf, long bufsz) {
 
             virtio_notify_avail(dev->regs, 0);
 
-            // CP2: yield while waiting for the device.  We could
+            // Yield while waiting for the device.  We could
             // condition_wait(&dev->rx_cond) here -- the ISR broadcasts it
             // -- but the cooperative-yield form is just as effective for
             // an entropy device (single in-flight request) and avoids a

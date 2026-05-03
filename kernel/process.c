@@ -204,7 +204,7 @@ void process_exit(void) {
             }
         }
         if (p->idx > 0) {
-            // CP3 forked child: discard the cloned mspace and drop the
+            // Forked child: discard the cloned mspace and drop the
             // dynamically allocated process struct.
             discard_active_mspace();
             proctab[p->idx] = NULL;

@@ -12,12 +12,10 @@ filesystem (KTFS), and supports `fork` / `exec` / `wait` over Sv39 paging.
 | Filesystem       | KTFS read/write driver with block cache and bitmap allocator      |
 | Drivers          | virtio-mmio (block + entropy), UART, RTC, PLIC                    |
 | Syscalls         | 15-call ABI (process, IO, FS), `ecall` trap path                  |
-| Test bench       | 39 cases / 70 pt over kernel internals, hooked into `make run-test` |
+| Test bench       | 39 cases / 69 pt over kernel internals, hooked into `make run-test` |
 
-The codebase began as the ECE 391 (UIUC) MP3 starter scaffold and was
-substantively re-implemented as a personal portfolio project. See
-[`NOTICE`](NOTICE) and the section on attribution at the bottom of this
-README.
+Distributed under the [NCSA Open Source License](LICENSE); see
+[`NOTICE`](NOTICE) for prior-art attribution.
 
 ## Architecture at a glance
 
@@ -65,7 +63,7 @@ program with `INIT=...`:
 | `fib`        | Print Fibonacci numbers via the syscall console              |
 | `trekfib`    | Fork: parent runs `fib`, child runs the trek game (default)  |
 | `init`       | Minimal init that exec's another binary                      |
-| `shell`      | Interactive REPL (added in Phase 11; planned)                |
+| `shell`      | Interactive REPL: `ls`, `cat`, `run`, `exit` over uart1      |
 
 ## Test bench
 
@@ -99,8 +97,8 @@ riscv-mini-os/
 ├── scripts/        setup-ubuntu.sh / build / run helpers
 ├── docs/           architecture, KTFS format, syscall ABI, memory map
 ├── DESIGN.md       end-to-end design walkthrough
-├── LICENSE         University of Illinois/NCSA Open Source License (OSI)
-├── NOTICE          attribution: UIUC ECE 391 starter + portfolio additions
+├── LICENSE         NCSA Open Source License (OSI-approved)
+├── NOTICE          prior-art attribution and contribution boundary
 └── AUTHORS         contributors
 ```
 
@@ -120,18 +118,13 @@ riscv-mini-os/
 
 ## License & attribution
 
-Distributed under the
-[University of Illinois/NCSA Open Source License](LICENSE). The project
-is a derivative work that builds on the ECE 391 MP3 starter scaffold
-(build system, header conventions, device-driver stubs, test-bench
-infrastructure). All starter files retain their original UIUC NCSA
-notices unmodified, as the license requires; substantively new files
-add a personal-author header on top.
+Distributed under the [NCSA Open Source License](LICENSE), an
+OSI-approved permissive license. The project is a derivative work
+that reuses a small amount of starter scaffolding (build system,
+header conventions, device-driver stubs, test-bench infrastructure)
+from prior contributors; those files retain their original NCSA
+copyright notices unmodified, and substantively new files add a
+personal-author header on top.
 
 See [`NOTICE`](NOTICE) for the full attribution boundary and
-[`AUTHORS`](AUTHORS) for the list of contributors.
-
-## Acknowledgments
-
-ECE 391 Course Staff at the University of Illinois at Urbana-Champaign,
-for the educational scaffolding this project grew out of.
+[`AUTHORS`](AUTHORS) for the contributor list.
