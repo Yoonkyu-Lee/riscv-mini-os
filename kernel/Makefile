@@ -109,9 +109,8 @@ kernel.elf: $(OBJS) main.o blob.o
 	$(LD) $(LDFLAGS) -T kernel.ld -o $@ $^
 
 # User binaries that get packed into ktfs.raw for the production image.
-# `shell` is added by Phase 11 once the user-mode shell is implemented.
 PROD_USR_BINS = ../user/bin/fib ../user/bin/trekfib ../user/bin/init \
-                ../user/bin/hello
+                ../user/bin/hello ../user/bin/shell
 
 ../user/bin/%:
 	$(MAKE) -C ../user UMODE=1
@@ -123,17 +122,17 @@ PROD_USR_BINS = ../user/bin/fib ../user/bin/trekfib ../user/bin/init \
 ktfs.raw: $(PROD_USR_BINS)
 	cd ../user/bin && \
 	  $(MKFS_KTFS) $(CURDIR)/ktfs.raw 16M 32 \
-	    fib trekfib init hello
+	    fib trekfib init hello shell
 
 # Pick the init binary to launch.  Default trekfib (fork demo).
 # Override with `make run INIT=shell` or `make run INIT=hello` etc.
 INIT ?= trekfib
 CFLAGS += -DINIT_NAME=\"$(INIT)\"
 
-run: kernel.elf ktfs.raw
+run: kernel.elf ktfs.raw | ../tests/fixtures/vioblk_scratch.raw
 	$(QEMU) $(QEMUOPTS) -m 8M -kernel $<
 
-debug: kernel.elf
+debug: kernel.elf ktfs.raw | ../tests/fixtures/vioblk_scratch.raw
 	$(QEMU) $(QEMUOPTS) -m 8M -kernel $< -S -s
 
 # ---- test bench ---------------------------------------------------------

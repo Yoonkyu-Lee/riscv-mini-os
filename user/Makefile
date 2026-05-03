@@ -28,7 +28,8 @@ ALL_TARGETS = \
 	hello \
 	fib \
 	trekfib \
-	init
+	init \
+	shell
 
 CFLAGS = -Wall -fno-omit-frame-pointer -ggdb3 -gdwarf-2
 CFLAGS += -mcmodel=medany -fno-pie -no-pie -march=rv64g -mabi=lp64d
@@ -54,10 +55,11 @@ trekfib: $(ULIB_OBJS) trekfib.o | bin
 init: $(ULIB_OBJS) init.o | bin
 	$(LD) -T $(ULIB_LD) -o bin/$@ $^
 
+shell: $(ULIB_OBJS) shell.o | bin
+	$(LD) -T $(ULIB_LD) -o bin/$@ $^
+
 bin:
 	mkdir $@
 
-# fib.c / trekfib.c / init.c are committed staff sources for CP3 demos
-# (also `bin/shell` is a committed staff binary).  Don't delete them on clean.
 clean:
-	rm -rf *.o *.elf *.asm
+	rm -rf *.o *.elf *.asm bin
