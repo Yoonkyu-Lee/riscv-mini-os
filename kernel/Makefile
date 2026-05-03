@@ -16,10 +16,11 @@ LD=$(PREFIX)ld
 OBJCOPY=$(PREFIX)objcopy
 OBJDUMP=$(PREFIX)objdump
 
-# mkfs_ktfs implementation. Phase 5 swaps this to the pure-Python script
-# in tools/. Until then we shell out to the vendor x86_64 binary that
-# lives under tools/_vendor/ (gitignored).
-MKFS_KTFS ?= ../tools/_vendor/mkfs_ktfs
+# mkfs_ktfs implementation. Pure-Python; matches the on-disk layout
+# documented in ktfs.h / ktfs.c. Override e.g.
+#   make ktfs.raw MKFS_KTFS='$$(abspath ../tools/_vendor/mkfs_ktfs)'
+# to fall back to the historical vendor binary.
+MKFS_KTFS ?= python3 $(abspath ../tools/mkfs_ktfs.py)
 
 OBJS = \
 	assert.o \
@@ -121,7 +122,7 @@ PROD_USR_BINS = ../user/bin/fib ../user/bin/trekfib ../user/bin/init \
 .PHONY: ktfs.raw
 ktfs.raw: $(PROD_USR_BINS)
 	cd ../user/bin && \
-	  $(abspath $(MKFS_KTFS)) $(CURDIR)/ktfs.raw 16M 32 \
+	  $(MKFS_KTFS) $(CURDIR)/ktfs.raw 16M 32 \
 	    fib trekfib init hello
 
 # Pick the init binary to launch.  Default trekfib (fork demo).
@@ -212,7 +213,7 @@ TEST_FIXTURE_FILES = \
 .PHONY: ../tests/fixtures/ktfs_test.raw
 ../tests/fixtures/ktfs_test.raw: $(TEST_FIXTURE_FILES)
 	cd ../tests/fixtures && \
-	  $(abspath $(MKFS_KTFS)) ktfs_test.raw 1M 16 $(notdir $(TEST_FIXTURE_FILES))
+	  $(MKFS_KTFS) ktfs_test.raw 1M 16 $(notdir $(TEST_FIXTURE_FILES))
 
 ../tests/fixture_blob.o: ../tests/fixtures/ktfs_test.raw
 	echo .end | $(AS) $(ASFLAGS) -o $@
