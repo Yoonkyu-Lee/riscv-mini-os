@@ -1,0 +1,66 @@
+>> building kernel + ktfs.raw (one-shot)
+>> booting QEMU virt with INIT=trekfib (timeout 20s)
+----------------------------------------------------------
+Added file fib to inode 1
+File size: 78864 bytes
+File start data block index: 1
+File start address: 6144
+Added file trekfib to inode 2
+File size: 78480 bytes
+File start data block index: 159
+File start address: 87040
+Added file init to inode 3
+File size: 78760 bytes
+File start data block index: 316
+File start address: 167424
+Added file hello to inode 4
+File size: 78920 bytes
+File start data block index: 473
+File start address: 247808
+Filesystem image created successfully: /home/yklee21/ece391/riscv-mini-os/kernel/ktfs.raw
+Disk size: 16777216 bytes
+char device redirected to /dev/pts/10 (label serial1)
+char device redirected to /dev/pts/11 (label serial2)
+           RAM: [0x80000000,0x80800000): 8 MB
+  Kernel image: [0x80000000,0x800183c0)
+Heap allocator: [0x800183c0,0x80019000): 3 KB free
+f(0) = 0
+f(1) = 1
+f(2) = 1
+f(3) = 2
+f(4) = 3
+f(5) = 5
+f(6) = 8
+f(7) = 13
+f(8) = 21
+f(9) = 34
+f(10) = 55
+f(11) = 89
+f(12) = 144
+f(13) = 233
+f(14) = 377
+f(15) = 610
+f(16) = 987
+f(17) = 1597
+f(18) = 2584
+f(19) = 4181
+f(20) = 6765
+f(21) = 10946
+f(22) = 17711
+f(23) = 28657
+f(24) = 46368
+f(25) = 75025
+f(26) = 121393
+f(27) = 196418
+f(28) = 317811
+f(29) = 514229
+f(30) = 832040
+f(31) = 1346269
+f(32) = 2178309
+f(33) = 3524578
+f(34) = 5702887
+f(35) = 9227465
+f(36) = 14930352
+qemu-system-riscv64: terminating on signal 15 from pid 4259 (timeout)
+----------------------------------------------------------
+>> done

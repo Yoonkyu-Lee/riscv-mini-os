@@ -36,6 +36,10 @@ flowchart LR
 More diagrams (boot timeline, fork sequence, KTFS layout) live under
 [`docs/`](docs/).
 
+A static boot transcript is at
+[`docs/img/demo.txt`](docs/img/demo.txt); regenerate it (or capture an
+asciinema GIF on top of it) with `scripts/demo.sh`.
+
 ## Quick start
 
 Tested on Ubuntu 22.04 / 24.04 with the riscv64-unknown-elf cross
