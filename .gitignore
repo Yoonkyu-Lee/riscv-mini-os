@@ -1,0 +1,30 @@
+# Build artifacts
+*.o
+*.elf
+*.asm
+*.raw
+*.img
+_build/
+bin/
+
+# Editor / OS junk
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Vendor staging area (course-provided x86_64 binaries used as a temporary
+# build shim; replaced by the pure-Python mkfs_ktfs in tools/. Must never
+# be committed.)
+tools/_vendor/
+
+# Local test scratch space
+ktfs.raw
+ktfs_test.raw
+vioblk_scratch.raw
