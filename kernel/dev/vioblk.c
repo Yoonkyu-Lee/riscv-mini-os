@@ -1,7 +1,7 @@
 // vioblk.c - VirtIO block device driver
 //
-// Copyright (c) 2024-2025 University of Illinois
-// SPDX-License-identifier: NCSA
+// Copyright (c) 2024-2026 Yoonkyu Lee
+// SPDX-License-Identifier: MIT
 //
 
 #ifdef VIOBLK_TRACE

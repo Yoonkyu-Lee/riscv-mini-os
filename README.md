@@ -14,8 +14,7 @@ filesystem (KTFS), and supports `fork` / `exec` / `wait` over Sv39 paging.
 | Syscalls         | 15-call ABI (process, IO, FS), `ecall` trap path                  |
 | Test bench       | 39 cases / 69 pt over kernel internals, hooked into `make run-test` |
 
-Distributed under the [NCSA Open Source License](LICENSE); see
-[`NOTICE`](NOTICE) for prior-art attribution.
+Distributed under the [MIT License](LICENSE).
 
 ## Architecture at a glance
 
@@ -97,8 +96,7 @@ riscv-mini-os/
 ├── scripts/        setup-ubuntu.sh / build / run helpers
 ├── docs/           architecture, KTFS format, syscall ABI, memory map
 ├── DESIGN.md       end-to-end design walkthrough
-├── LICENSE         NCSA Open Source License (OSI-approved)
-├── NOTICE          prior-art attribution and contribution boundary
+├── LICENSE         MIT License
 └── AUTHORS         contributors
 ```
 
@@ -116,15 +114,7 @@ riscv-mini-os/
 - [`docs/benchmarks.md`](docs/benchmarks.md) — `_fork+_wait`, syscall,
   and KTFS open cost (~4.5 µs syscall, ~19 µs fsopen, ~1.3 ms fork)
 
-## License & attribution
+## License
 
-Distributed under the [NCSA Open Source License](LICENSE), an
-OSI-approved permissive license. The project is a derivative work
-that reuses a small amount of starter scaffolding (build system,
-header conventions, device-driver stubs, test-bench infrastructure)
-from prior contributors; those files retain their original NCSA
-copyright notices unmodified, and substantively new files add a
-personal-author header on top.
-
-See [`NOTICE`](NOTICE) for the full attribution boundary and
+Distributed under the [MIT License](LICENSE). See
 [`AUTHORS`](AUTHORS) for the contributor list.

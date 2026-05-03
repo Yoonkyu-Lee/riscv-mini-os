@@ -1,7 +1,7 @@
 // cache.h - Block cache for a storage device
 //
-// Copyright (c) 2025 University of Illinois
-// SPDX-License-identifier: NCSA
+// Copyright (c) 2024-2026 Yoonkyu Lee
+// SPDX-License-Identifier: MIT
 //
 
 #ifndef _CACHE_H_

@@ -1,5 +1,5 @@
 // Copyright (c) 2025 Yoonkyu Lee
-// SPDX-License-Identifier: NCSA
+// SPDX-License-Identifier: MIT
 //
 // test_main.c -- entry point for the kernel test bench
 //

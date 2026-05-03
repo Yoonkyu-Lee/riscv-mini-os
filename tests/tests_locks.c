@@ -1,5 +1,5 @@
 // Copyright (c) 2025 Yoonkyu Lee
-// SPDX-License-Identifier: NCSA
+// SPDX-License-Identifier: MIT
 //
 // tests_locks.c -- 1 lock test case (1pt total)
 //

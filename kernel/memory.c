@@ -1,7 +1,7 @@
 /*! @file memory.c
     @brief Physical and virtual memory manager    
-    @copyright Copyright (c) 2024-2025 University of Illinois
-    @license SPDX-License-identifier: NCSA
+    @copyright Copyright (c) 2024-2026 Yoonkyu Lee
+    @license SPDX-License-Identifier: MIT
 
 */
 

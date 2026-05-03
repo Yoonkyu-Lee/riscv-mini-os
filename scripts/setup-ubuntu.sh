@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Copyright (c) 2025 Yoonkyu Lee
-# SPDX-License-Identifier: NCSA
+# SPDX-License-Identifier: MIT
 #
 # Install the toolchain riscv-mini-os needs on Ubuntu 22.04 / 24.04.
 # Idempotent. Requires sudo for apt.

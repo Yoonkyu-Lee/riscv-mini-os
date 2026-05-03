@@ -1,5 +1,5 @@
 // Copyright (c) 2025 Yoonkyu Lee
-// SPDX-License-Identifier: NCSA
+// SPDX-License-Identifier: MIT
 //
 // bench - microbenchmark for fork+wait, syscall, and KTFS open cost.
 //

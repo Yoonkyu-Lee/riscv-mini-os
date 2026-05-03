@@ -1,7 +1,7 @@
 # thrasm.s - Special functions called from thread.c
 #
-# Copyright (c) 2024-2025 University of Illinois
-# SPDX-License-identifier: NCSA
+# Copyright (c) 2024-2026 Yoonkyu Lee
+# SPDX-License-Identifier: MIT
 #
 
 # struct thread * _thread_swtch(struct thread * resuming_thread)

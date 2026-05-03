@@ -1,7 +1,7 @@
 // io.c - Unified I/O object
 //
-// Copyright (c) 2024-2025 University of Illinois
-// SPDX-License-identifier: NCSA
+// Copyright (c) 2024-2026 Yoonkyu Lee
+// SPDX-License-Identifier: MIT
 //
 
 #include "io.h"

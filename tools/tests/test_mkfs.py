@@ -1,5 +1,5 @@
 # Copyright (c) 2025 Yoonkyu Lee
-# SPDX-License-Identifier: NCSA
+# SPDX-License-Identifier: MIT
 """Round-trip tests for mkfs_ktfs.py / unmkfs_ktfs.py.
 
 Run with: python3 -m unittest discover tools/tests

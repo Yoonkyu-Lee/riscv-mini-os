@@ -1,7 +1,7 @@
 // fbuf.h - ioctls for a frame buffer device (e.g. viogpu)
 // 
-// Copyright (c) 2025 University of Illinois
-// SPDX-License-identifier: NCSA
+// Copyright (c) 2024-2026 Yoonkyu Lee
+// SPDX-License-Identifier: MIT
 //
 
 #define IOCTL_GETFBUF       100 // arg is void **

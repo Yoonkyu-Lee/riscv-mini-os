@@ -1,5 +1,5 @@
 # Copyright (c) 2025 Yoonkyu Lee
-# SPDX-License-Identifier: NCSA
+# SPDX-License-Identifier: MIT
 #
         # setjmp.S -- minimal setjmp/longjmp for the test bench
         #

@@ -1,5 +1,5 @@
 // Copyright (c) 2025 Yoonkyu Lee
-// SPDX-License-Identifier: NCSA
+// SPDX-License-Identifier: MIT
 //
 // tests_ktfsrw.c -- 3 read-write KTFS test cases (10pt total)
 //

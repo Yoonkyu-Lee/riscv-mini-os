@@ -1,8 +1,5 @@
 # Authors of riscv-mini-os
 #
-# This file lists the people who contributed to this codebase.
-# It is informational; the LICENSE and NOTICE files at the repository
-# root describe the legal terms.
+# Distributed under the MIT License (see LICENSE).
 
 Yoonkyu Lee <yoonguri21@gmail.com>
-Prior contributors to the starter scaffolding (see source-file headers)

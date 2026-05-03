@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Copyright (c) 2025 Yoonkyu Lee
-# SPDX-License-Identifier: NCSA
+# SPDX-License-Identifier: MIT
 #
 # Boot the kernel under QEMU, run the user-mode benchmark binary, and
 # print only the bench report lines. Use to refresh docs/benchmarks.md.

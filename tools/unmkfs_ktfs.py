@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2025 Yoonkyu Lee
-# SPDX-License-Identifier: NCSA
+# SPDX-License-Identifier: MIT
 """unmkfs_ktfs - extract files from a KTFS filesystem image.
 
 Usage: unmkfs_ktfs <image.raw> [--list | --out <dir>]

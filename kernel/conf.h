@@ -1,7 +1,7 @@
 // conf.h - Compile-time configuration constants
 //
-// Copyright (c) 2025 University of Illinois
-// SPDX-License-identifier: NCSA
+// Copyright (c) 2024-2026 Yoonkyu Lee
+// SPDX-License-Identifier: MIT
 //
 
 // QEMU-BASED CONSTANTS

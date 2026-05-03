@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Copyright (c) 2025 Yoonkyu Lee
-# SPDX-License-Identifier: NCSA
+# SPDX-License-Identifier: MIT
 #
 # Boot the kernel under QEMU and exit cleanly after a fixed wall-clock
 # window. Wrapped by the asciinema recorder when capturing the README

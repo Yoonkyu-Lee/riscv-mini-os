@@ -1,7 +1,7 @@
 // syscall.S - System call function definitions
 //
-// Copyright (c) 2024-2025 University of Illinois
-// SPDX-License-identifier: NCSA
+// Copyright (c) 2024-2026 Yoonkyu Lee
+// SPDX-License-Identifier: MIT
 //
 
 #include "scnum.h"

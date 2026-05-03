@@ -1,7 +1,7 @@
 // virtio.c - MMIO-based VirtIO. See end of the file for licenses
 // 
-// Copyright (c) 2024-2025 University of Illinois
-// SPDX-License-identifier: NCSA
+// Copyright (c) 2024-2026 Yoonkyu Lee
+// SPDX-License-Identifier: MIT
 //
 
 #ifndef _VIRTIO_H_

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2025 Yoonkyu Lee
-# SPDX-License-Identifier: NCSA
+# SPDX-License-Identifier: MIT
 """mkfs_ktfs - build a KTFS filesystem image.
 
 Usage: mkfs_ktfs <out.raw> <size> <num_inodes> <files...>
