@@ -1,6 +1,9 @@
+// Copyright (c) 2025 Yoonkyu Lee
+// SPDX-License-Identifier: NCSA
+//
 // tests_syscall.c -- 9 syscall test cases (20pt total)
 //
-// AG report cases: sys_dev (3), sys_del (1), sys_create (1), sys_read (1),
+// Test cases: sys_dev (3), sys_del (1), sys_create (1), sys_read (1),
 // sys_write (3), sys_ioctl (4), sys_exec (3), sys_usleep (2), sys_exit (1),
 // sys_args (1).  10 cases / 20pt total per the rubric.
 //
@@ -173,7 +176,7 @@ static int test_sys_usleep(struct test_result *r) {
         return 0;
     }
     // Expect at least ~half a millisecond.  conf.h::TIMER_FREQ was
-    // 10MHz in MP2 (10 ticks per microsecond).
+    // 10MHz (10 ticks per microsecond).
     if (delta < 5000) {
         r->fail_reason = "sysusleep returned too quickly";
         return 0;
@@ -190,7 +193,7 @@ static int test_sys_usleep(struct test_result *r) {
 // once the runner can sandbox sysexit in a child thread.
 static int test_sys_exit(struct test_result *r) {
     // Skip-ish: just confirm SYSCALL_EXIT is dispatched (the stub
-    // returns 0; the real impl is noreturn and tested in CP2 demo).
+    // returns 0; the real impl is noreturn and tested in the user-mode demo).
     r->fail_reason = "sysexit test skipped -- noreturn impl halts runner";
     (void)r;
     return 0;

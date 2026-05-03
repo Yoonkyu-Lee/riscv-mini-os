@@ -563,6 +563,7 @@ struct thread * tlremove(struct thread_list * list) {
 
 // Appends elements of l1 to the end of l0 and clears l1.
 
+__attribute__((unused))
 void tlappend(struct thread_list * l0, struct thread_list * l1) {
     if (l0->head != NULL) {
         assert(l0->tail != NULL);

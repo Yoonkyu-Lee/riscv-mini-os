@@ -1,6 +1,9 @@
+// Copyright (c) 2025 Yoonkyu Lee
+// SPDX-License-Identifier: NCSA
+//
 // tests_ktfsrw.c -- 3 read-write KTFS test cases (10pt total)
 //
-// AG report cases (without _gdb suffix):
+// Test cases (logical names without _gdb suffix):
 //   test_ktfs_writeat_persist  5pt
 //   test_ktfs_create_persist   3pt
 //   test_ktfs_delete           2pt

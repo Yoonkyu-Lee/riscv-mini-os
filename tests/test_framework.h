@@ -1,7 +1,10 @@
-// test_framework.h -- shared declarations for the MP3 test bench
+// Copyright (c) 2025 Yoonkyu Lee
+// SPDX-License-Identifier: NCSA
 //
-// Carries the MP2 framework forward (S-mode + U-mode trap recovery,
-// clobber detector, AG-style runner) and adds MP3-specific suite
+// test_framework.h -- shared declarations for the test bench
+//
+// Carries the earlier framework forward (S-mode + U-mode trap recovery,
+// clobber detector, test runner) and adds kernel-specific suite
 // registries.
 
 #ifndef _TEST_FRAMEWORK_H_

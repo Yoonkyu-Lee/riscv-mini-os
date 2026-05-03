@@ -1,6 +1,9 @@
+// Copyright (c) 2025 Yoonkyu Lee
+// SPDX-License-Identifier: NCSA
+//
 // tests_cache.c -- 3 cache test cases (6pt)
 //
-// AG report cases (without _gdb suffix):
+// Test cases (logical names without _gdb suffix):
 //   test_cache_get_block_0      2pt
 //   test_cache_get_block_1      2pt
 //   test_cache_release_block_0  2pt

@@ -1,6 +1,9 @@
+// Copyright (c) 2025 Yoonkyu Lee
+// SPDX-License-Identifier: NCSA
+//
 // tests_vm.c -- 6 virtual-memory test cases (10pt total)
 //
-// Mirrors last year's CP2 grader rubric (G13 grade_report_cp2.md):
+// Test cases for the virtual-memory subsystem:
 //   test_vm_kernel_mapped       1pt
 //   test_vm_user_initial_page   1pt
 //   test_vm_user_range_map      2pt
@@ -10,7 +13,7 @@
 //
 // We don't have access to QEMU's `info mem` console (the grader's tool),
 // so we walk the active page table directly via csrr satp + Sv39 3-level
-// traversal.  This catches the G13 failure mode where map_page picks up
+// traversal.  This catches an earlier failure mode where map_page picks up
 // the wrong vaddr (e.g. 0xffffffffc0000000 instead of 0x00000000fffff000).
 
 #include <stdint.h>

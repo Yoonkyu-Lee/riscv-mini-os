@@ -1,4 +1,7 @@
-        # setjmp.S -- minimal setjmp/longjmp for the MP1 test bench
+# Copyright (c) 2025 Yoonkyu Lee
+# SPDX-License-Identifier: NCSA
+#
+        # setjmp.S -- minimal setjmp/longjmp for the test bench
         #
         # Buffer layout (104 bytes, 13 doublewords):
         #   off 0:    ra   (return address at setjmp call site)

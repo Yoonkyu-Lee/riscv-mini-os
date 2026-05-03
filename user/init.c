@@ -1,3 +1,6 @@
+// Copyright (c) 2025 Yoonkyu Lee
+// SPDX-License-Identifier: NCSA
+//
 #include <stddef.h>
 #include "syscall.h"
 

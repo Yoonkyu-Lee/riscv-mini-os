@@ -1,3 +1,6 @@
+// Copyright (c) 2025 Yoonkyu Lee
+// SPDX-License-Identifier: NCSA
+//
 // excp_replace.c -- drop-in replacement for excp.c with fault recovery
 //
 // This module replaces excp.o for test.elf.  It exports the same

@@ -1,3 +1,6 @@
+// Copyright (c) 2025 Yoonkyu Lee
+// SPDX-License-Identifier: NCSA
+//
 // test_main.c -- entry point for the MP3 test bench
 //
 // Boots the kernel infrastructure that's been imported from MP2 (intr,

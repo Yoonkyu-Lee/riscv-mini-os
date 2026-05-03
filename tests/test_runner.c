@@ -1,3 +1,6 @@
+// Copyright (c) 2025 Yoonkyu Lee
+// SPDX-License-Identifier: NCSA
+//
 // test_runner.c -- per-test driver and AG-style report formatter
 //
 // Each test is invoked through run_test(), which wraps the call in:

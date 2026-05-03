@@ -1,10 +1,13 @@
+# Copyright (c) 2025 Yoonkyu Lee
+# SPDX-License-Identifier: NCSA
+#
         # clobber.S -- callee-saved register clobber detection wrapper
         #
         # uint64_t clobber_call(void (*fn)(),
         #                       u64 a0, u64 a1, u64 a2, u64 a3, u64 a4, u64 a5);
         #
         # Wraps a single call to /fn/ with arguments a0..a5 (max 6, which
-        # covers every MP1 function -- start_beacon is the widest at 6).
+        # covers every test function -- start_beacon is the widest at 6).
         # Detects whether /fn/ violates the RV64 ABI by clobbering any of
         # the 12 callee-saved registers s0-s11.
         #

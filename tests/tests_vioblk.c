@@ -1,10 +1,13 @@
+// Copyright (c) 2025 Yoonkyu Lee
+// SPDX-License-Identifier: NCSA
+//
 // tests_vioblk.c -- 5 VirtIO block test cases (7pt)
 //
-// AG report cases (without _gdb suffix):
+// Test cases (logical names without _gdb suffix):
 //   test_vioblk_readat_simple_1   1pt
 //   test_vioblk_readat_simple_2   2pt
-//   test_vioblk_writeat_simple_0  1pt   (failed in G13: queue_reset assertion)
-//   test_vioblk_writeat_simple_1  1pt   (failed in G13: queue_reset assertion)
+//   test_vioblk_writeat_simple_0  1pt  
+//   test_vioblk_writeat_simple_1  1pt  
 //   test_vioblk_writeat_simple_2  2pt
 //
 // Pristine starter dev/vioblk.c is broken-compile (we patched it to a
@@ -95,7 +98,7 @@ static int test_vioblk_writeat_simple_0(struct test_result *r) {
     for (size_t i = 0; i < sizeof pattern; i++)
         pattern[i] = (uint8_t)(i ^ 0x55);
 
-    // Write 1 block at offset 0 (start of disk).  G13 failed here on
+    // Write 1 block at offset 0 (start of disk).  an earlier implementation failed here on
     // `queue_reset == 1` assertion; mutation test target.
     long w = iowriteat(io, /*pos=*/0, pattern, sizeof pattern);
     if (w != (long)sizeof pattern) {

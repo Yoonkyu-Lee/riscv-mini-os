@@ -1,6 +1,9 @@
+// Copyright (c) 2025 Yoonkyu Lee
+// SPDX-License-Identifier: NCSA
+//
 // tests_ktfs.c -- 10 read-only KTFS test cases (10pt total)
 //
-// AG report cases (without _gdb suffix), all 1pt:
+// Test cases (logical names without _gdb suffix), all 1pt:
 //   test_ktfs_close
 //   test_ktfs_cntl
 //   test_ktfs_readat_small               (file < 1 block)
@@ -21,7 +24,7 @@
 // (NULL), ktfs_readat returns 0.  Every test fails on either
 // "ktfs_open returned NULL ioptr" or "ktfs_readat returned 0".
 //
-// Last year's G13 group's failure mode was different: ktfs_mount
+// An earlier implementation's failure mode was different: ktfs_mount
 // crashed on sparse inode tables, taking down all subsequent tests.
 // Our test bench would catch that as a fault recovery (cause=12 page
 // fault) reported per test; the regression signature would be 10/10

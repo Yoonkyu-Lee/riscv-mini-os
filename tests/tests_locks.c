@@ -1,6 +1,9 @@
+// Copyright (c) 2025 Yoonkyu Lee
+// SPDX-License-Identifier: NCSA
+//
 // tests_locks.c -- 1 lock test case (1pt total)
 //
-// AG report case (without _gdb suffix): test_locks (1pt).
+// Test case (logical name without _gdb suffix): test_locks (1pt).
 //
 // Verifies the recursive-ownership semantics required by the doxygen spec:
 //   - lock_acquire on an unheld lock takes ownership and sets count=1
@@ -9,7 +12,7 @@
 //   - thread_exit must drain held locks (we don't exercise that here --
 //     covered indirectly by other tests once threading is filled in)
 //
-// Pristine MP3 with our Phase-A patched thread.c -- this test PASSES out
+// With the patched thread.c -- this test PASSES out
 // of the gate because the lock implementation is part of the framework
 // import.  The test exists so that any future regression (e.g. someone
 // rewriting thread.c without lock_*) is caught immediately.

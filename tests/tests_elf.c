@@ -1,6 +1,9 @@
+// Copyright (c) 2025 Yoonkyu Lee
+// SPDX-License-Identifier: NCSA
+//
 // tests_elf.c -- 3 ELF loader test cases (4pt)
 //
-// AG report cases (without _gdb suffix):
+// Test cases (logical names without _gdb suffix):
 //   test_elf_valid     2pt   accept a well-formed RV64 PT_LOAD ELF
 //   test_elf_32_bit    1pt   reject ELF whose e_ident[EI_CLASS] != ELFCLASS64
 //   test_elf_non_exec  1pt   reject ELF whose e_type != ET_EXEC
@@ -128,7 +131,7 @@ static int test_elf_valid(struct test_result *r) {
     void *mapped = alloc_and_map_range(ELF_LOAD_VMA, 0x1000,
                                        PTE_R | PTE_W | PTE_X | PTE_U);
     if (mapped == NULL) {
-        r->fail_reason = "alloc_and_map_range stub -- needs CP2 memory.c";
+        r->fail_reason = "alloc_and_map_range stub -- needs the memory subsystem";
         return 0;
     }
 

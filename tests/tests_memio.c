@@ -1,6 +1,9 @@
+// Copyright (c) 2025 Yoonkyu Lee
+// SPDX-License-Identifier: NCSA
+//
 // tests_memio.c -- 2 memio test cases (2pt)
 //
-// AG report cases (without _gdb suffix):
+// Test cases (logical names without _gdb suffix):
 //   test_memio_readat   1pt
 //   test_memio_writeat  1pt
 //
