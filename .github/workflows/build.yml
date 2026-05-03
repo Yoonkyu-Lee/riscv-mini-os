@@ -1,0 +1,61 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: install toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential \
+            gcc-riscv64-unknown-elf \
+            binutils-riscv64-unknown-elf \
+            qemu-system-misc \
+            python3
+          riscv64-unknown-elf-gcc --version | head -1
+          qemu-system-riscv64 --version | head -1
+          python3 --version
+
+      - name: build kernel
+        working-directory: kernel
+        run: |
+          make -j$(nproc)
+          test -f kernel.elf
+
+      - name: build test bench
+        working-directory: kernel
+        run: make test.elf
+
+      - name: mkfs round-trip tests
+        run: python3 -m unittest discover tools/tests -v
+
+      - name: run kernel test bench in QEMU
+        working-directory: kernel
+        run: |
+          set -o pipefail
+          # The bench prints "Total: 69/70" on success (1 case is an
+          # intentionally skipped sysexit halt-runner). We require
+          # both the cases-passed line and the total-score line to
+          # appear in the QEMU output.
+          timeout 240 make run-test 2>&1 | tee /tmp/qemu.log
+          grep -E '^Total: 69/70' /tmp/qemu.log
+          grep -E 'Penalties: none'  /tmp/qemu.log
+
+      - name: upload qemu log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qemu-log
+          path: /tmp/qemu.log
+          if-no-files-found: ignore
